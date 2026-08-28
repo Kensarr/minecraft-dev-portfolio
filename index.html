@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio | Java & Minecraft Developer</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Lucide Icons untuk Ikon Teknis -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">&lt;<span class="highlight">Dev</span>Java /&gt;</div>
+        <ul class="nav-links">
+            <li><a href="#home">Beranda</a></li>
+            <li><a href="#about">Tentang</a></li>
+            <li><a href="#skills">Keahlian</a></li>
+            <li><a href="#projects">Plugin & Proyek</a></li>
+            <li><a href="#contact">Kontak</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="badge"><i data-lucide="terminal"></i> Java & Backend Developer</div>
+            <h1>Pengembang <span class="highlight">Plugin Minecraft</span> & Aplikasi Java</h1>
+            <p>Berfokus pada pengembangan sistem server performa tinggi, optimasi Paper/Spigot API, integrasi database, dan arsitektur backend Minecraft.</p>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn primary"><i data-lucide="code-2"></i> Lihat Plugin</a>
+                <a href="#contact" class="btn secondary">Diskusi Proyek</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Counter -->
+    <section class="stats-bar">
+        <div class="stat-item">
+            <h3 class="stat-number">100K+</h3>
+            <p>Total Download Plugin</p>
+        </div>
+        <div class="stat-item">
+            <h3 class="stat-number">99.9%</h3>
+            <p>Optimasi TPS & Performa</p>
+        </div>
+        <div class="stat-item">
+            <h3 class="stat-number">15+</h3>
+            <p>Server Terintegrasi</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <h2>Tentang Saya</h2>
+        <div class="about-grid">
+            <div class="about-text">
+                <p>Halo! Saya seorang developer yang berspesialisasi dalam ekosistem **Java** dan **Minecraft Server Architecture**. Saya berpengalaman membangun plugin custom untuk Spigot, Paper, dan Purpur, mulai dari sistem ekonomi kompleks, minigames, hingga integrasi backend ke database SQL/Redis.</p>
+                <p>Fokus utama saya adalah **performa dan efisiensi kode**—memastikan plugin dapat berjalan mulus tanpa menyebabkan lag pada server dengan populasi pemain tinggi.</p>
+            </div>
+            <div class="about-specs">
+                <div class="spec-card">
+                    <i data-lucide="cpu"></i>
+                    <div>
+                        <h4>Optimasi Asinkron</h4>
+                        <p>Pemrosesan database & I/O tanpa mengganggu main server thread.</p>
+                    </div>
+                </div>
+                <div class="spec-card">
+                    <i data-lucide="database"></i>
+                    <div>
+                        <h4>Integrasi Database</h4>
+                        <p>MySQL, PostgreSQL, MongoDB, dan caching dengan Redis.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section bg-alt">
+        <h2>Tech Stack & Tools</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3>Bahasa & Core</h3>
+                <div class="skill-tags">
+                    <span>Java 8 - 21</span>
+                    <span>Kotlin</span>
+                    <span>SQL</span>
+                    <span>Git</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Minecraft APIs</h3>
+                <div class="skill-tags">
+                    <span>Paper / Spigot</span>
+                    <span>Velocity / BungeeCord</span>
+                    <span>Sponge API</span>
+                    <span>NMS (Net.Minecraft.Server)</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Database & Tools</h3>
+                <div class="skill-tags">
+                    <span>MySQL / MariaDB</span>
+                    <span>Redis Cache</span>
+                    <span>Maven / Gradle</span>
+                    <span>Docker</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <h2>Proyek Plugin & Software</h2>
+        <div class="project-grid">
+            
+            <!-- Card 1 -->
+            <div class="card">
+                <div class="card-header">
+                    <i data-lucide="box"></i>
+                    <span class="version-tag">v1.20.x</span>
+                </div>
+                <h3>Advanced Economy Core</h3>
+                <p>System ekonomi multi-mata uang asinkron dengan dukungan vault API, caching Redis, dan penyimpanan MySQL.</p>
+                <div class="card-tags">
+                    <span>Java 17</span>
+                    <span>PaperAPI</span>
+                    <span>MySQL</span>
+                    <span>Redis</span>
+                </div>
+                <div class="card-footer">
+                    <a href="https://github.com" target="_blank" class="link-btn"><i data-lucide="github"></i> Source Code</a>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="card">
+                <div class="card-header">
+                    <i data-lucide="gamepad-2"></i>
+                    <span class="version-tag">v1.16 - v1.20</span>
+                </div>
+                <h3>Custom BedWars Minigame</h3>
+                <p>Engine minigame custom dengan sistem auto-reset arena berbasis RAM, lobby queue, dan statistik pemain realtime.</p>
+                <div class="card-tags">
+                    <span>Java</span>
+                    <span>Spigot</span>
+                    <span>BungeeCord</span>
+                </div>
+                <div class="card-footer">
+                    <a href="https://spigotmc.org" target="_blank" class="link-btn"><i data-lucide="external-link"></i> SpigotMC</a>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="card">
+                <div class="card-header">
+                    <i data-lucide="shield-check"></i>
+                    <span class="version-tag">Velocity</span>
+                </div>
+                <h3>Proxy Sync & Auth System</h3>
+                <p>Plugin proxy untuk sinkronisasi antrean server, verifikasi akun 2FA Discord, dan manajemen *cross-serverchat*.</p>
+                <div class="card-tags">
+                    <span>Velocity</span>
+                    <span>DiscordSRV</span>
+                    <span>Java 21</span>
+                </div>
+                <div class="card-footer">
+                    <a href="https://github.com" target="_blank" class="link-btn"><i data-lucide="github"></i> GitHub</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section bg-alt">
+        <h2>Hubungi Developer</h2>
+        <p class="subtitle">Butuh plugin custom untuk servermu atau ingin berkonsultasi tentang arsitektur backend Minecraft?</p>
+        <div class="contact-links">
+            <a href="https://github.com" target="_blank" class="social-link"><i data-lucide="github"></i> GitHub</a>
+            <a href="https://discord.com" target="_blank" class="social-link"><i data-lucide="message-square"></i> Discord (Username#0000)</a>
+            <a href="mailto:emailmu@example.com" class="social-link"><i data-lucide="mail"></i> Email</a>
+            <a href="https://builtbybit.com" target="_blank" class="social-link"><i data-lucide="shopping-bag"></i> BuiltByBit / MC-Market</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Developer Java Minecraft. Built for speed and efficiency.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
