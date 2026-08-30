@@ -3,60 +3,202 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VinnKenn | Minecraft & Backend Developer</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- Font Inter & JetBrains Mono -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-    <!-- Lucide Icons -->
+    <title>Vinnstore - Portofolio & Jasa Digital</title>
+    
+    <!-- Script untuk memunculkan ikon Lucide -->
     <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        :root {
+            --bg-dark: #121212;
+            --box-dark: #1e1e1e;
+            --text-light: #ffffff;
+            --text-muted: #a1a1aa;
+            --border: #27272a;
+            --accent: #3b82f6;
+            --wa-color: #25D366;      
+            --dc-color: #5865F2;      
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            margin: 0;
+            padding: 0;
+            line-height: 1.5;
+        }
+
+        /* === HEADER === */
+        header {
+            background-color: rgba(18, 18, 18, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .logo { font-size: 1.2rem; font-weight: 800; color: #fff; text-decoration: none; letter-spacing: 1px; }
+        .logo span { color: var(--accent); }
+        .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; margin-left: 20px; font-weight: 500; transition: 0.2s; }
+        .nav-links a:hover { color: var(--text-light); }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-light);
+        }
+        .section-title::before {
+            content: ""; display: inline-block; width: 8px; height: 24px;
+            background-color: var(--accent); border-radius: 4px;
+        }
+        
+        .content-section { margin-bottom: 50px; }
+
+        /* === GRID UMUM === */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin-bottom: 50px;
+        }
+
+        .box {
+            background-color: var(--box-dark); border: 1px solid var(--border);
+            border-radius: 12px; padding: 15px; transition: all 0.2s ease;
+            display: flex; flex-direction: column;
+        }
+        .box:hover { border-color: #3f3f46; transform: translateY(-3px); }
+
+        .img-placeholder {
+            width: 100%; height: 140px; background-color: #27272a;
+            border-radius: 8px; margin-bottom: 15px; background-size: cover; background-position: center;
+        }
+        .title { font-size: 1.05rem; font-weight: 600; margin: 0 0 5px 0; }
+        .subtitle { font-size: 0.85rem; color: var(--text-muted); margin: 0; flex-grow: 1; }
+        .price { font-size: 0.95rem; font-weight: bold; color: var(--text-light); margin: 15px 0; }
+
+        /* === CSS TAMBAHAN UNTUK KODE ANDA === */
+        
+        /* Stats Grid */
+        .grid-3 {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px; margin-bottom: 50px;
+        }
+        .stat-card {
+            background: var(--box-dark); border: 1px solid var(--border);
+            border-radius: 12px; padding: 20px; text-align: center;
+            transition: all 0.2s ease;
+        }
+        .stat-card:hover { border-color: var(--accent); }
+        .stat-icon { color: var(--accent); margin-bottom: 10px; width: 32px; height: 32px; }
+        .stat-val { font-size: 2rem; font-weight: 800; color: #fff; margin-bottom: 5px; }
+        .stat-lbl { font-size: 0.85rem; color: var(--text-muted); }
+
+        /* Tech Stack */
+        .skills-wrapper { display: flex; flex-wrap: wrap; gap: 10px; }
+        .skill-pill {
+            display: flex; align-items: center; gap: 8px;
+            background: #1a1a1a; border: 1px solid var(--border);
+            padding: 8px 16px; border-radius: 20px; font-size: 0.85rem;
+            color: var(--text-light); transition: 0.2s;
+        }
+        .skill-pill:hover { background: var(--border); border-color: var(--text-muted); }
+        .skill-pill i { width: 16px; height: 16px; color: var(--accent); }
+
+        /* Featured Projects */
+        .projects-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 15px;
+        }
+        .project-card {
+            background: var(--box-dark); border: 1px solid var(--border);
+            border-radius: 12px; padding: 20px; display: flex; flex-direction: column;
+            transition: 0.2s ease;
+        }
+        .project-card:hover { border-color: #3f3f46; transform: translateY(-3px); }
+        .project-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+        .project-icon { color: var(--accent); width: 24px; height: 24px; }
+        .badge-tech {
+            font-size: 0.75rem; background: rgba(59, 130, 246, 0.1);
+            color: var(--accent); padding: 4px 8px; border-radius: 6px; font-weight: bold;
+        }
+        .project-card h3 { margin: 0 0 10px 0; font-size: 1.1rem; }
+        .project-card p { font-size: 0.85rem; color: var(--text-muted); margin: 0; flex-grow: 1; }
+        .project-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
+        .project-tags span {
+            font-size: 0.75rem; background: #27272a; padding: 4px 10px;
+            border-radius: 6px; color: #d4d4d8; font-weight: 500;
+        }
+
+        /* === TOMBOL === */
+        .btn {
+            display: block; width: 100%; padding: 10px; border-radius: 8px;
+            text-decoration: none; font-weight: 600; font-size: 0.85rem;
+            text-align: center; transition: 0.2s; border: none; cursor: pointer; box-sizing: border-box;
+        }
+        .btn-wa { background-color: #1a1a1a; border: 1px solid var(--wa-color); color: var(--wa-color); margin-top: auto;}
+        .btn-wa:hover { background-color: var(--wa-color); color: #fff; }
+        .btn-dc { background-color: #1a1a1a; border: 1px solid var(--dc-color); color: var(--dc-color); margin-top: auto;}
+        .btn-dc:hover { background-color: var(--dc-color); color: #fff; }
+
+        @media (max-width: 600px) { .nav-links { display: none; } }
+    </style>
 </head>
 <body>
 
-    <!-- Ambient Glow Background -->
-    <div class="glow-bg"></div>
-
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="brand">
-            <span class="dot"></span>
-            <span class="brand-name">VinnKenn</span>
+    <header>
+        <a href="#" class="logo">VINN<span>STORE</span></a>
+        <div class="nav-links">
+            <a href="#portofolio">Portofolio</a>
+            <a href="#expertise">Tech Stack</a>
+            <a href="#jasa">Jasa & Layanan</a>
         </div>
-        <div class="status-badge">
-            <span class="status-dot"></span>
-            Available for Commissions
-        </div>
-    </nav>
+    </header>
 
-    <!-- Main Container -->
-    <main class="container">
+    <div class="container">
 
-        <!-- Profile / Hero Header -->
-        <header class="profile-card">
-            <div class="profile-header">
-                <div class="avatar-wrapper">
-                    <img src="https://api.mineatar.io/head/A1F31D09D85E33D998B3DEB17F887B80?scale=4" alt="Minecraft Skin Avatar" class="avatar-img">
-                </div>
-                <div class="profile-info">
-                    <div class="tag">Java & Plugin Specialist</div>
-                    <h1>VinnKenn <span class="accent">/ Dev</span></h1>
-                    <p class="bio">Mengembangkan plugin high-performance Spigot/Paper, integrasi backend server Minecraft, serta arsitektur jaringan bervolume tinggi.</p>
-                    
-                    <div class="social-bar">
-                        <a href="https://github.com" target="_blank" class="icon-link" title="GitHub"><i data-lucide="github"></i></a>
-                        <a href="https://discord.com" target="_blank" class="icon-link" title="Discord"><i data-lucide="message-square"></i></a>
-                        <a href="mailto:contact@crysmp.my.id" class="icon-link" title="Email"><i data-lucide="mail"></i></a>
-                    </div>
-                </div>
+        <!-- ================= 1. PORTOFOLIO VISUAL ================= -->
+        <div id="portofolio" class="section-title">Visual Portofolio</div>
+        <div class="grid">
+            <div class="box">
+                <div class="img-placeholder" style="background-image: url('https://via.placeholder.com/400x200/27272a/a1a1aa?text=Screenshot+Survival');"></div>
+                <h3 class="title">Cry SMP</h3>
+                <p class="subtitle">Survival Anarchy</p>
             </div>
-        </header>
+            <div class="box">
+                <div class="img-placeholder" style="background-image: url('https://via.placeholder.com/400x200/27272a/a1a1aa?text=Screenshot+Minigames');"></div>
+                <h3 class="title">Vinn Network</h3>
+                <p class="subtitle">BungeeCord & Bedwars Hub</p>
+            </div>
+            <div class="box">
+                <div class="img-placeholder" style="background-image: url('https://via.placeholder.com/400x200/27272a/a1a1aa?text=Discord+Integrasi');"></div>
+                <h3 class="title">Discord x Minecraft</h3>
+                <p class="subtitle">Setup Sinkronisasi Chat & Log</p>
+            </div>
+        </div>
 
+        <!-- ================= 2. BAGIAN TENGAH (KODE DARI ANDA) ================= -->
         <!-- Stats Grid -->
-        <section class="grid-3">
+        <section class="grid-3" id="expertise">
             <div class="stat-card">
                 <i data-lucide="code" class="stat-icon"></i>
-                <div class="stat-val">50+</div>
+                <div class="stat-val">37+</div>
                 <div class="stat-lbl">Custom Plugins Built</div>
             </div>
             <div class="stat-card">
@@ -73,7 +215,7 @@
 
         <!-- Tech Stack -->
         <section class="content-section">
-            <h2 class="section-title"><i data-lucide="cpu"></i> Tech Stack & Expertise</h2>
+            <h2 class="section-title"><i data-lucide="cpu" style="color: var(--accent);"></i> Tech Stack & Expertise</h2>
             <div class="skills-wrapper">
                 <div class="skill-pill"><i data-lucide="terminal"></i> Java 17 / 25</div>
                 <div class="skill-pill"><i data-lucide="box"></i> Paper / Spigot API</div>
@@ -84,12 +226,10 @@
             </div>
         </section>
 
-        <!-- Featured Projects / Portfolio -->
+        <!-- Featured Projects -->
         <section class="content-section">
-            <h2 class="section-title"><i data-lucide="folder-git-2"></i> Featured Projects</h2>
-            
+            <h2 class="section-title"><i data-lucide="folder-git-2" style="color: var(--accent);"></i> Featured Projects</h2>
             <div class="projects-grid">
-
                 <!-- Project Item 1 -->
                 <div class="project-card">
                     <div class="project-header">
@@ -99,9 +239,7 @@
                     <h3>VinnCore / System Engine</h3>
                     <p>Custom Rank, Build Lobby, Custom World, Datapack & Resource Pack, Custom Economy, Dll.</p>
                     <div class="project-tags">
-                        <span>Java 21</span>
-                        <span>MySQL</span>
-                        <span>HikariCP</span>
+                        <span>Java 21</span> <span>MySQL</span> <span>Favric API</span>
                     </div>
                 </div>
 
@@ -114,9 +252,7 @@
                     <h3>Cross-Server Economy</h3>
                     <p>Custom NPC, Economy, Event Server, Command Block, Redstone Engineering, Quest Minigame.</p>
                     <div class="project-tags">
-                        <span>Redis</span>
-                        <span>Vault API</span>
-                        <span>Jackson JSON</span>
+                        <span>Redis</span> <span>Vault API</span> <span>Jackson JSON</span>
                     </div>
                 </div>
 
@@ -127,44 +263,46 @@
                         <span class="badge-tech">Minigame API</span>
                     </div>
                     <h3>BedWars Arena Engine</h3>
-                    <p>Engine minigame arena independen dengan otomatisasi rollback dunia cepat (RAM world copy) dan scoreboard tanpa kedip.</p>
+                    <p>Engine minigame arena independen dengan otomatisasi rollback dunia cepat dan scoreboard tanpa kedip.</p>
                     <div class="project-tags">
-                        <span>Paper API</span>
-                        <span>PacketEvents</span>
+                        <span>Paper API</span> <span>PacketEvents</span>
                     </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Services / Commissions Section -->
-        <section class="content-section">
-            <h2 class="section-title"><i data-lucide="wrench"></i> Services Offered</h2>
-            <div class="services-list">
-                <div class="service-item">
-                    <div class="service-info">
-                        <h4>Custom Plugin Development</h4>
-                        <p>Pembuatan plugin Minecraft sesuai ide spesifik dari nol hingga siap pakai.</p>
-                    </div>
-                    <span class="price-tag">Custom Quote</span>
-                </div>
-                <div class="service-item">
-                    <div class="service-info">
-                        <h4>Server Performance Tuning</h4>
-                        <p>Analisis Spark profiler, perbaikan kebocoran memori (memory leak), & optimasi TPS.</p>
-                    </div>
-                    <span class="price-tag">Optimization</span>
                 </div>
             </div>
         </section>
 
-        <!-- Footer -->
-        <footer class="footer">
-            <p>&copy; 2026 <strong>VinnKenn</strong>. Crafted for Minecraft Communities.</p>
-        </footer>
 
-    </main>
+        <!-- ================= 3. JASA & LAYANAN (DI BAWAH) ================= -->
+        <div id="jasa" class="section-title">Jasa Setup & Pembelian</div>
+        <div class="grid">
+            <div class="box">
+                <div class="img-placeholder" style="background-image: url('https://via.placeholder.com/400x200/27272a/a1a1aa?text=Icon+Survival');"></div>
+                <h3 class="title">Setup Server Survival</h3>
+                <p class="subtitle">Lengkap dengan ekonomi, claim land, & custom rank.</p>
+                <p class="price">Mulai Rp 50.000</p>
+                <a href="https://wa.me/6288989556200?text=Halo min mau setup server survival" target="_blank" class="btn btn-wa">Beli via WhatsApp</a>
+            </div>
+            <div class="box">
+                <div class="img-placeholder" style="background-image: url('https://via.placeholder.com/400x200/27272a/a1a1aa?text=Icon+Network');"></div>
+                <h3 class="title">Setup Network / Hub</h3>
+                <p class="subtitle">Sistem BungeeCord, Velocity, dan koneksi antar server.</p>
+                <p class="price">Mulai Rp 100.000</p>
+                <a href="https://wa.me/6288989556200?text=Halo min mau setup server survival" target="_blank" class="btn btn-wa">Beli via WhatsApp</a>
+            </div>
+            <div class="box">
+                <div class="img-placeholder" style="background-image: url('https://via.placeholder.com/400x200/27272a/a1a1aa?text=Icon+Bug+Fix');"></div>
+                <h3 class="title">Fix Error & Config Plugin</h3>
+                <p class="subtitle">Perbaikan lag server, error console, dan setting plugin.</p>
+                <p class="price">Mulai Rp 50.000</p>
+                <a href="https://discord.gg/Q5EDd3JP" target="_blank" class="btn btn-dc">Konsultasi via Discord</a>
+            </div>
+        </div>
 
-    <script src="script.js"></script>
+    </div>
+
+    <!-- Script wajib di bagian paling bawah agar ikon Lucide ter-render -->
+    <script>
+        lucide.createIcons();
+    </script>
 </body>
 </html>
